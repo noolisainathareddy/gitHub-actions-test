@@ -1,17 +1,10 @@
-name: My Fist Test
+name: My Fisrt App
 
 on: push
 
 jobs:
-  build-and-test:
+  Build-And-Test:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Welcome command
-      run: echo "welcome to GithubActions"
-
-    - name: List files
-      run: ls  
-
-    - name: Read files
-      run: cat README.md
+    - name: Welcome Message
+      run: echo "Welcome to GitHub Actions"
