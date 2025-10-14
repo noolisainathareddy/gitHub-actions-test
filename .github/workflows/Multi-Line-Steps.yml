@@ -8,7 +8,7 @@ jobs:
     steps:
     - name: List and Read
       uses: actions/checkout@v5
-      runs: |
+      run: |
         echo "This is first Line"
         ls -ltra
         cat README.md
