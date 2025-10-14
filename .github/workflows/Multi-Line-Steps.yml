@@ -1,0 +1,17 @@
+name: Multi-Line-Steps
+
+on: push
+
+jobs:
+  Multi-Line-Job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: List and Read
+      uses: actions/checkout@v5
+      runs: |
+        echo "This is first Line"
+        ls -ltra
+        cat README.md
+    
+    - name: Second-set-steps
+      run: echo "Job completed"
