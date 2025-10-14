@@ -13,4 +13,4 @@ jobs:
       uses: actions/checkout@v5
 
     - name: List files
-      runs: ls
+      run: ls
