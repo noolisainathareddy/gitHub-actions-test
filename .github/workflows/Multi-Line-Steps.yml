@@ -6,8 +6,10 @@ jobs:
   Multi-Line-Job:
     runs-on: ubuntu-latest
     steps:
-    - name: List and Read
+    - name: Checkout
       uses: actions/checkout@v5
+    
+    - name: List and Read
       run: |
         echo "This is first Line"
         ls -ltra
