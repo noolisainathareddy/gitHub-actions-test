@@ -1,0 +1,19 @@
+name: Run-Script
+
+on: push
+
+jobs:
+  Run-Script-Job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code 
+      uses: actions/checkout@v5
+
+    - name: List files
+      run: ls -ltrs
+    
+    - name: Execute Script
+      run: ./start.sh
+
+
+
