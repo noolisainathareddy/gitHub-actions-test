@@ -1,0 +1,17 @@
+name: My Fist Test
+
+on: push
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Welcome command
+      run: echo "welcome to GithubActions"
+
+    - name: List files
+      run: ls  
+
+    - name: Read files
+      run: cat README.md
