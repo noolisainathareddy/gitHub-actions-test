@@ -8,3 +8,9 @@ jobs:
     steps:
     - name: Welcome Message
       run: echo "Welcome to GitHub Actions"
+    
+    - name: Checkout Code 
+      uses: actions/checkout@v5
+
+    - name: List files
+      runs: ls
