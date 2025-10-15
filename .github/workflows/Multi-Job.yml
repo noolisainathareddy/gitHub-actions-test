@@ -1,0 +1,26 @@
+name: Multi-Job-WorkFlow
+
+on: push
+
+jobs:
+  build-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      run: | 
+        actions/checkout@v5
+        ls -ltra
+  
+  Test-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Start Testing
+      run: |
+        echo "Test results" > testresults.txt 
+        echo "Testing comepleted"
+
+  Deploy-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy Code in prod
+      run: testresults.txt
