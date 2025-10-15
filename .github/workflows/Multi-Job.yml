@@ -18,10 +18,19 @@ jobs:
         echo "Test results" > testresults.txt 
         echo "Testing comepleted"
         ls -ltra
+    - name: Upload to Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Test-results
+        path: testresults.txt
 
   Deploy-job:
     needs: [build-job, Test-job ]
     runs-on: ubuntu-latest
     steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: Test-results
     - name: Deploy Code in prod
       run: cat testresults.txt
