@@ -10,6 +10,7 @@ jobs:
       uses: actions/checkout@v5
   
   Test-job:
+    needs: build-job
     runs-on: ubuntu-latest
     steps:
     - name: Start Testing
@@ -19,6 +20,7 @@ jobs:
         ls -ltra
 
   Deploy-job:
+    needs: [build-job, Test-job ]
     runs-on: ubuntu-latest
     steps:
     - name: Deploy Code in prod
