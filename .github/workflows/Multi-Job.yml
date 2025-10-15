@@ -2,9 +2,10 @@ name: Multi-Job-WorkFlow
 
 on: push
 
-env: 
-  name: Sai Natha Reddy
-  password: NoPassword
+env:
+  NAME: Sai Natha Reddy
+  PASSWORD: NoPassword
+
 jobs:
   build-job:
     runs-on: ubuntu-latest
@@ -21,8 +22,8 @@ jobs:
         echo "Test results" > testresults.txt 
         echo "Testing comepleted"
         ls -ltra
-        echo "Get variable from WorkFlow -  ${{ name }}"
-        echo "Get variable from WorkFlow -  ${{ password }}"
+        echo "Get variable from WorkFlow -  $NAME"
+        echo "Get variable from WorkFlow -  $PASSWORD"
     - name: Upload to Artifact
       uses: actions/upload-artifact@v4
       with:
