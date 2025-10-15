@@ -1,6 +1,7 @@
 name: Multi-Job-WorkFlow
 
-on: push
+on:
+  workflow_dispatch:
 
 env:
   NAME: Sai Natha Reddy
