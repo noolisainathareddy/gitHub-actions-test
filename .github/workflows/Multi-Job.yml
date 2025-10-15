@@ -22,8 +22,8 @@ jobs:
         echo "Test results" > testresults.txt 
         echo "Testing comepleted"
         ls -ltra
-        echo "Get variable from WorkFlow -  $NAME"
-        echo "Get variable from WorkFlow -  $PASSWORD"
+        echo "Get variable from WorkFlow -  $NAME ,  ${{ vars.USER_NAME }}"
+        echo "Get variable from WorkFlow -  $PASSWORD , ${{ secrets.LOGIN_PASSWD }}"
     - name: Upload to Artifact
       uses: actions/upload-artifact@v4
       with:
