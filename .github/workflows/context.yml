@@ -15,3 +15,9 @@ jobs:
             env:
                 RUNNER_CONTEXT: ${{ tojson(runner) }}
             run: echo $RUNNER_CONTEXT
+    Deploy:
+        if: github.ref == 'refs/heads/main'
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deploy to prod
+              run: echo "Deployed code to prod"
