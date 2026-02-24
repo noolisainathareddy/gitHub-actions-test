@@ -14,6 +14,7 @@ jobs:
                 ls -a
                 date
                 git --version
+                python --version
 
 
 
