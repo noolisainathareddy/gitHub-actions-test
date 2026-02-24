@@ -6,12 +6,11 @@ jobs:
     first-job:
         runs-on: ubuntu-latest
         steps:
-        -   name: Welcome Message
-            run: echo "My first messgae"
         -   name: Checkout Code
             uses: actions/checkout@main
-        -   name: List Files
-            run: ls
-        -   name: Read File
-            run: cat README.md 
+        -   name: Welcome Message
+            run: | 
+                echo "My first messgae"
+                ls
+                cat README.md 
              
