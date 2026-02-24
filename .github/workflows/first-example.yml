@@ -1,0 +1,15 @@
+name: First-Example
+
+on: push
+
+jobs:
+    first-job:
+        runs-on: ubuntu-20.04
+        steps:
+        -   name: Welcome Message
+            run: echo "My first messgae"
+        -   name: List Files
+            run: ls
+        -   name: Read File
+            run: cat README.md 
+             
