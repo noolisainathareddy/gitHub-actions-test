@@ -8,6 +8,8 @@ jobs:
         steps:
         -   name: Welcome Message
             run: echo "My first messgae"
+        -   name: Checkout Code
+            uses: actions/checkout@main
         -   name: List Files
             run: ls
         -   name: Read File
