@@ -1,16 +1,20 @@
-name: First-Example
-
+name: first-workflow
 on: push
 
 jobs:
-    first-job:
+    forst-job:
         runs-on: ubuntu-latest
         steps:
-        -   name: Checkout Code
+        -   name: welcome message
+            run: echo "Welcome to CI/CD"
+        -   name: Clone repo
             uses: actions/checkout@main
-        -   name: Welcome Message
-            run: | 
-                echo "My first messgae"
-                ls
-                cat README.md 
+        -   name: Run below commands
+            run: |
+                ls -a
+                date
+                git --version
+
+
+
              
