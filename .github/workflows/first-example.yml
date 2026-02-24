@@ -15,6 +15,7 @@ jobs:
                 date
                 git --version
                 python --version
+                node --version
 
 
 
