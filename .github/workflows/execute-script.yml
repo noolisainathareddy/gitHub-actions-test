@@ -6,7 +6,8 @@ jobs:
         steps:
         -   name: Welcome Message
             run: echo "Welcome"
-        
+        -   name: Clone repo
+            uses: actions/checkout@main
         -   name: Run script
             run: |
                 ./print-num.sh
