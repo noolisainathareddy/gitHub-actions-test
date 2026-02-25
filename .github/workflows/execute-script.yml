@@ -1,13 +1,33 @@
 name: second-workflow
 on: push
 jobs:
-    second-job:
+    first-job:
         runs-on: ubuntu-latest
         steps:
-        -   name: Welcome Message
+        -   name: First Job
             run: echo "Welcome"
         -   name: Clone repo
             uses: actions/checkout@main
         -   name: Run script
             run: |
                 ./print-num.sh
+                sleep 30
+                touch test.txt
+                echo "This is a test file" > test.txt
+    second-job:
+        runs-on: ubuntu-latest
+        steps:
+        -   name: Second Job
+            run: echo "Second Job"
+        -   name: write test file
+            run : | 
+                cat test.txt
+                sleep 20
+
+    third-job:
+        runs-on: ubuntu-latest
+        steps:
+        -   name: Third job
+            run: echo "Third Job"
+        -   name: Read test file
+            run: cat test.txt
