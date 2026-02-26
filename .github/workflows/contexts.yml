@@ -1,0 +1,26 @@
+name: contexts-example
+on: push
+jobs:
+    first-job:
+        runs-on: ubuntu-latest
+        steps:
+        -   name: Welcome Message
+            env:
+                JOB_CONTEXT: ${{ tojson(job) }}
+            run: | 
+                echo "Welcome to GitHub Actions"
+                echo ${{ env.JOB_CONTEXT }} 
+
+
+        -   name: Checkout Repo
+            uses: actions/checkout@main
+
+        -   name: Run following commands
+            env: 
+                RUNNER_CONTEXT: ${{ tojson(runner) }}
+            run: |
+                ls -lstra
+                cat README.md
+                git --version
+                echo ${{ env.RUNNER_CONTEXT }}
+
