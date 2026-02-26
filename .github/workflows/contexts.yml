@@ -6,7 +6,7 @@ jobs:
         steps:
         -   name: Welcome Message
             env:
-                JOB_CONTEXT: ${{ tojson(job) }}
+                JOB_CONTEXT: ${{ toJson(job) }}
             run: | 
                 echo "Welcome to GitHub Actions"
                 echo ${{ env.JOB_CONTEXT }} 
@@ -17,7 +17,7 @@ jobs:
 
         -   name: Run following commands
             env: 
-                RUNNER_CONTEXT: ${{ tojson(runner) }}
+                RUNNER_CONTEXT: ${{ toJson(runner) }}
             run: |
                 ls -lstra
                 cat README.md
