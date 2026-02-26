@@ -1,0 +1,15 @@
+name: matrix
+on: push
+jobs:
+    deploy:
+        strategy:
+            matrix:
+                os: [ubuntu-latest, windows-latest]
+                image: [hellow-wold, alpine]
+        runs-on: ${{ matrix.os }}
+        steps:
+        -   name: Running on ${{ matrix.os}}
+            run: echo "Running image ${{ matrix.image }}"
+
+        -   name: Docker run
+            run: docker run ${{ matrix.image }}
