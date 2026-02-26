@@ -21,6 +21,7 @@ jobs:
             run: echo "Second Job"
         -   name: write test file
             run : | 
+                ls
                 cat test.txt
 
     third-job:
