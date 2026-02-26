@@ -46,3 +46,8 @@ jobs:
                 name: test-file
         -   name: Read test file
             run: cat test.txt
+    build-image:
+        runs-on: ubuntu-latest
+        steps:
+        -   name: Docker version
+            run: docker --version
