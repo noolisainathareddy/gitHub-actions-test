@@ -9,7 +9,7 @@ jobs:
                 JOB_CONTEXT: ${{ toJson(job) }}
             run: | 
                 echo "Welcome to GitHub Actions"
-                echo ${{ env.JOB_CONTEXT }} 
+                echo $JOB_CONTEXT
 
 
         -   name: Checkout Repo
@@ -22,5 +22,5 @@ jobs:
                 ls -lstra
                 cat README.md
                 git --version
-                echo ${{ env.RUNNER_CONTEXT }}
+                echo $RUNNER_CONTEXT
 
