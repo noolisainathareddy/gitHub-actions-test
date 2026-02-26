@@ -1,5 +1,7 @@
 name: second-workflow
 on: push
+env:
+    DOCKER_USERNAME: "nooli"
 jobs:
     first-job:
         runs-on: ubuntu-latest
@@ -32,8 +34,6 @@ jobs:
             run : | 
                 ls
                 cat test.txt
-        
-
     third-job:
         needs: second-job
         runs-on: ubuntu-latest
@@ -51,3 +51,7 @@ jobs:
         steps:
         -   name: Docker version
             run: docker --version
+        -   name: Docker Login
+            run: |  
+                echo docker login  --username=${{ env.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD}}
+                echo ${{ vars.CONTAINER_REGISTRY }}
