@@ -23,4 +23,10 @@ jobs:
                 cat README.md
                 git --version
                 echo $RUNNER_CONTEXT
+    deploy:
+        if: github.ref == 'refs/heads/feature'
+        runs-on: ubuntu-latest
+        steps:
+        -   name: Testing
+            run: echo "This is deployment job" 
 
