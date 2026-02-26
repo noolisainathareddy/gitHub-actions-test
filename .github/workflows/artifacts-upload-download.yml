@@ -1,6 +1,9 @@
 name: second-workflow
 on:
     workflow_dispatch:
+concurrency: 
+    group: dev-deployment
+    cancel-in-progress: true
 env:
     DOCKER_USERNAME: "nooli"
 jobs:
