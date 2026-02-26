@@ -1,5 +1,5 @@
 name: second-workflow
-# on: push
+on: push
 jobs:
     first-job:
         runs-on: ubuntu-latest
@@ -13,16 +13,26 @@ jobs:
                 ./print-num.sh
                 touch test.txt
                 echo "This is a test file" > test.txt
+        -   name: Upload Artifact
+            uses: actions/upload-artifact@v4
+            with:
+                name: test-file
+                path: test.txt
     second-job:
         needs: first-job
         runs-on: ubuntu-latest
         steps:
         -   name: Second Job
             run: echo "Second Job"
+        -   name: Download Artifact
+            uses: actions/download-artifact@v4
+            with:
+                name: test-file
         -   name: write test file
             run : | 
                 ls
                 cat test.txt
+        
 
     third-job:
         needs: second-job
@@ -30,5 +40,9 @@ jobs:
         steps:
         -   name: Third job
             run: echo "Third Job"
+        -   name: Download Artifact
+            uses: actions/download-artifact@v4
+            with:
+                name: test-file
         -   name: Read test file
             run: cat test.txt
