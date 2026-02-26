@@ -1,6 +1,6 @@
 name: second-workflow
-on:
-    workflow_dispatch:
+on: push
+    # workflow_dispatch:
 concurrency: 
     group: dev-deployment
     cancel-in-progress: true
@@ -51,6 +51,7 @@ jobs:
         -   name: Read test file
             run: cat test.txt
     build-image:
+        timeout-minutes: 2
         runs-on: ubuntu-latest
         steps:
         -   name: Docker version
@@ -59,3 +60,4 @@ jobs:
             run: |  
                 echo docker login  --username=${{ env.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD}}
                 echo ${{ vars.CONTAINER_REGISTRY }}
+                sleep 6000
